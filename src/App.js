@@ -7,41 +7,36 @@ import ProjectCard from './components/ProjectCard'
 import AboutMe from './components/AboutMe'
 import SkillCard from './components/SkillCard'
 import ContactForm from './components/ContactForm'
-import AnimatedCursor from "react-animated-cursor"
+
 
 
 function App() {
   return (
     <>
-    <AnimatedCursor
-      color="#fff"
-      innerSize={8}
-      outerSize={50}
-      innerScale={1}
-      outerScale={2.2}
-      outerAlpha={0}
-      outerStyle={{
-        background: '#ffffff',
-        mixBlendMode: 'exclusion'
-      }}
-      innerStyle={{
-        backgroundColor: '#F94892'
-      }}
-    />
+
     <div>
       <Navbar />
       <HomeBanner id = "home"/>
       <ProjectCard
         id = "project"
         className = "odd"
-        projectTitle="Wiggles: Pet Care Made Easy"
-        projectDesc="A one-stop solution for pet data management, automated vaccinations, QR-based lost pet recovery, and organizing pet playdates."
+        projectTitle={
+          <div style={{
+            background: 'linear-gradient(to right, #DF8908, #B415FF, #F94892)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent',
+            color: 'transparent'
+          }}>
+            Portfolio
+          </div>
+        }
+        projectDesc="Welcome to my portfolio showcasing a collection of dynamic web projects crafted with precision using HTML, CSS, and JavaScript, powered by React.js. Explore how I blend creativity with technical expertise to deliver engaging and responsive web solutions."
         projectLink="https://github.com/DevanshSahni/Wiggles"
         deployedProjectLink="https://wiggles.vercel.app"
-        projectImg={require('./images/projectWiggles.jpg')}
+        projectImg={require('./images/portfolio.png')}
       />
 
-      <ProjectCard
+      {/* <ProjectCard
         projectTitle="Animated Card: featuring the latest glassmorphism trend"
         projectDesc="React JS provided me the flexibility needed to create an interactive card with a glass-like effect, which adds a sense of depth and dimension to the user interface"
         projectLink="https://github.com/Deepajha14/Touch-me-not-Card"
@@ -56,7 +51,7 @@ function App() {
         projectLink="https://github.com/Deepajha14/Rog-Free"
         deployedProjectLink="https://deepajha14.github.io/Rog-Free/"
         projectImg={require('./images/projectRogfree.png')}
-      />
+      /> */}
       <AboutMe id = 'about' />
       <SkillCard id = 'skills' />
       <ContactForm id = 'contact' />

@@ -1,26 +1,37 @@
 import React from 'react';
 import "./HomeBannerStyle.css";
-import cartoon from "../images/cartoon-compressed.png";
+import profile from "../images/profile_image.png";
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 
-export default function HomeBanner({id}) {
+export default function HomeBanner({ id }) {
   return (
     <div className="home" id={id}> 
         <div className='content'>
             <div className="wrapper">
-              <div className="name">Deepa Jha</div>
+              <div className="name">Rudrika Raghav</div>
               <div className="staticTitle">
-                Designer
-                <div className='hrLine'></div>
+                Programmer
+             
               </div>
               <ul className="dynamicTitle">
                 <li>+<span>Developer</span></li>
               </ul>
-              <a className='btn' href="https://www.linkedin.com/in/deepajha14/" target="_blank" rel="noopener noreferrer">Hire Me</a>
+              <div className="social-links">
+                <a href="https://www.linkedin.com/in/rudrika-raghav-b9804024a/" target="_blank" rel="noopener noreferrer">
+                  <FaLinkedin className="social" size={25} style={{ marginRight: "2rem" }} />
+                </a>
+                <a href="https://github.com/rudrika2425" target="_blank" rel="noopener noreferrer">
+                  <FaGithub className="social" size={25} style={{ marginRight: "2rem" }} />
+                </a>
+                <a href="https://www.instagram.com/rudrika_2425/" target="_blank" rel="noopener noreferrer">
+                  <FaInstagram className="social" size={25} style={{ marginRight: "2rem" }} />
+                </a>
+              </div>
             </div>
         </div>
         <div className="mask">
-            <img className='bg' src={cartoon} alt="girl-with-laptop" />
+            <img className='bg' src={profile} alt="profile image" />
         </div>
     </div>
-  )
+  );
 }

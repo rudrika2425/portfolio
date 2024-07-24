@@ -1,61 +1,112 @@
-import React, { useRef } from 'react';
+import React, { useState } from 'react';
 import './ContactFormStyle.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import emailjs from '@emailjs/browser';
-import cartoon from '../images/cartoon-compressed.png';
 
 export default function ContactForm({ id }) {
-  const form = useRef();
+  const [formData, setFormData] = useState({
+    name: '',
+    contact: '',
+    email: '',
+    message: ''
+  });
 
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    emailjs.sendForm('deepajha14', 'template_lyzbf0p', form.current, '-8AsG2hlNcWfgWJFj')
-      .then((result) => {
-          console.log(result.text);
-          toast.success('Message sent successfully.', {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            });
-      }, (error) => {
-          console.log(error.text);
-          toast.error("Failed to send message. Kindly refresh the page.", {
-            position: "top-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            });
-      });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevData => ({
+      ...prevData,
+      [name]: value
+    }));
   };
 
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('https://sheetdb.io/api/v1/0y1fxrrvoa92t', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify([formData])  // Wrap formData in an array
+      });
 
+      if (!response.ok) {
+        const errorData = await response.text();  
+        throw new Error(`Network response was not ok: ${errorData}`);
+      }
 
+      toast.success('Form submitted successfully. Thank you!', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      
+      setFormData({ name: '', contact: '', email: '', message: '' });  // Clear the form
+    } catch (error) {
+      toast.error(`Failed to submit the form. Please try again. ${error.message}`, {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "dark",
+      });
+      console.error('Error:', error);
+    }
+  };
 
   return (
     <div className='contact-window' id={id}>
-      <h1>Let's Get in Touch.</h1>
-      <p>Discuss a project or just want to say Hi? My inbox is open for all.</p>
+      <h1>Have a vision? </h1>
+      <p>I have the skills. Drop a line and let’s make it happen!</p>
       <div className="contact-container">
-        <img src={cartoon} alt='Deepa Jha' className="contact-wrapper-left"></img>        
-        <form ref={form} onSubmit={sendEmail} className="contact-wrapper-right">
-          <input id='name' type="text" name="name" placeholder='Full Name'  required/>
-          <input id='email' type="email" name="email" placeholder='Email ID' required />
-          <textarea id='message' name="message" rows='5' column='15' placeholder='Share your thoughts and insights here; your feedback means a lot.' required/>
-          <button className='btn' id='submitBtn' type="submit" value="Send" >Send Message</button>
+        <form onSubmit={handleFormSubmit} className="contact-wrapper-right">
+          <input
+            id='name'
+            type="text"
+            name="name"
+            placeholder='Full Name'
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+          <input
+            id='contact'
+            type="text"
+            name="contact"
+            placeholder='Contact Number'
+            value={formData.contact}
+            onChange={handleChange}
+            required
+          />
+          <input
+            id='email'
+            type="email"
+            name="email"
+            placeholder='Email ID'
+            value={formData.email}
+            onChange={handleChange}
+            required
+          />
+          <textarea
+            id='message'
+            name="message"
+            rows='5'
+            placeholder='Share your thoughts; they’re the spark that ignites our innovation.'
+            value={formData.message}
+            onChange={handleChange}
+            required
+          />
+          <button className='btn' id='submitBtn' type="submit">Send Message</button>
           <ToastContainer />
         </form>
-        
       </div>
     </div>
   )

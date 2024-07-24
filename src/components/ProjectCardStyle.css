@@ -1,6 +1,6 @@
 .project-window {
     width: 100%;
-    padding: 160px 7vw 0 15vw;
+    padding: 25px 7vw 60px 15vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,17 +48,15 @@
     0% {
         top: 20px;
     }
-
     50% {
         top: -20px;
     }
-
     100% {
         top: 20px;
     }
 }
 
-.project-img  img {
+.project-img img {
     border-radius: 18px;
     max-width: 500px;
     width: fit-content;
@@ -70,16 +68,13 @@
         padding-left: 17vw;
         padding-top: 180px;
     }
-
     .project-img {
         margin-left: 60px;
     }
-
     .odd .project-img {
         margin-right: 60px;
     }
-
-    .project-img  img  {
+    .project-img img {
         max-width: 400px;
     }
 }
@@ -94,20 +89,16 @@
         padding-left: 25vw;
         padding-top: 100px;
     }
-
     .project-title {
         margin-top: 40px;
     }
-
     .project-img {
         margin: 0;
     }
-
     .odd .project-img {
         margin: 0;
     }
-
-    .project-img  img  {
+    .project-img img {
         max-width: 450px;
     }
 }
@@ -121,28 +112,128 @@
         justify-content: center;
         align-items: center;
     }
-
     .project-title {
         margin-top: 35px;
         font-size: 32px;
     }
-
     .about-project .desc {
         font-size: 16px;
     }
-
     .about-project .btn {
         font-size: 16px;
     }
-
     .project-img {
         margin: 0;
     }
     .odd .project-img {
         margin: 0;
     }
-
-    .project-img  img  {
+    .project-img img {
         max-width: 300px;
     }
+}
+
+.skill-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 50px;
+    margin: 50px 7vw 0px 15vw;
+}
+
+.skill-container .skill-header {
+    font-size: 50px;
+    font-weight: 600;
+    color: #fff;
+    margin-bottom: 50px;
+    margin-top: -20px;
+}
+
+.skill-container .skill-box {
+    width: 100%;
+}
+
+.skill-box h2 {
+    background-image: linear-gradient(to right, #DF8908, #B415FF, #F94892);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: 2px;
+    word-spacing: 3px;
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.skill-box .skillset abbr .techLogo:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to right, #DF8908, #B415FF, #F94892);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.skill-box .skillset {
+    margin: 25px 0 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 10px 25px;
+}
+
+.techLogo {
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    height: 120px;
+    width: auto;
+    padding: 30px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.skill-box .skillset abbr .techLogo:hover {
+    border: 2px solid rgb(255, 255, 255);
+    box-shadow: 0px 5px 20px 0px #f94892;
+    transform: scale(1.15);
+}
+
+@media screen and (max-width: 1040px), (max-height: 550px) {
+    .skill-container {
+        margin: 50px 7vw 0px 20vw;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .skill-container {
+        padding-top: 80px;
+        margin: 0 50px 0px;
+    }
+    .techLogo {
+        height: 80px;
+        padding: 14px;
+    }
+}
+
+.btn {
+    border: 2px solid #fff;
+    color: #fff;
+    background-color: transparent;
+}
+
+.btn span {
+    color: #fff;
+}
+
+.btn span .social-git {
+    color: #fff;
+}
+
+.btn:hover {
+    background-color: #f94892;
+    border-color: #f94892;
 }

@@ -1,10 +1,11 @@
+/* Skill Container Styles */
 .skill-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     padding-top: 50px;
-    margin: 50px 7vw 0px 15vw;
+    margin: 50px 7vw 0 15vw;
 }
 
 .skill-container .skill-header {
@@ -12,6 +13,7 @@
     font-weight: 600;
     color: #fff;
     margin-bottom: 50px;
+    margin-top: -20px;
 }
 
 .skill-container .skill-box {
@@ -19,9 +21,27 @@
 }
 
 .skill-box h2 {
-    color: #fff;
+    margin-top: -10px;
+    background-image: linear-gradient(to right, #DF8908, #B415FF, #F94892);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     letter-spacing: 2px;
     word-spacing: 3px;
+    font-size: 35px;
+    font-weight: 500;
+}
+
+.skill-box .skillset abbr .techLogo:hover::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(to right, #DF8908, #B415FF, #F94892);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
 }
 
 .skill-box .skillset {
@@ -41,29 +61,38 @@
     padding: 30px;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
+    position: relative; /* Ensure that pseudo-elements are positioned relative to this */
 }
 
-.skill-box .skillset abbr .techLogo:hover{
-    border: 2px solid rgb(255, 255, 255);
-    box-shadow: 0px 5px 20px 0px rgba(255, 255, 255, 0.4);
+.skill-box .skillset abbr .techLogo:hover {
+    border: 2px solid #fff;
+    box-shadow: 0 5px 20px 0 #f94892;
     transform: scale(1.15);
 }
 
+/* Responsive Styles */
 @media screen and (max-width: 1040px), (max-height: 550px) {
-
     .skill-container {
-        margin: 50px 7vw 0px 20vw;
+        margin: 50px 5vw 0; /* Adjusted margin for medium screens */
     }
 }
 
 @media screen and (max-width: 750px) {
     .skill-container {
-        padding-top:  80px;
-        margin: 0 50px 0px;
+        padding-top: 80px;
+        margin: 0 20px 0; /* Adjusted margin for small screens */
+    }
+
+    .skill-header {
+        font-size: 40px; /* Adjust font size for smaller screens */
     }
 
     .techLogo {
         height: 80px;
-        padding: 14px;
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    .skill-box h2 {
+        font-size: 30px; /* Adjust font size for smaller screens */
     }
 }

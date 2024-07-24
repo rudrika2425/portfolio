@@ -1,114 +1,102 @@
 import React, { useState } from "react";
 import "./NavbarStyle.css";
 import { Link } from "react-scroll";
-import {
-  FaGithub,
-  FaInstagram,
-  FaLinkedin,
-  FaBars,
-  FaTimes,
-} from "react-icons/fa";
+import { FaBars, FaTimes } from "react-icons/fa";
+import resume from "../images/rudrika-raghav-drive-resume.pdf"; // Import the resume file
 
 export default function Navbar() {
   const [click, setClick] = useState(false);
-  const handleCLick = () => setClick(!click);
+  const handleClick = () => setClick(!click);
+
+  const downloadFile = () => {
+    const aTag = document.createElement('a');
+    aTag.href = resume; // Use the imported file URL
+    aTag.setAttribute('download', 'rudrika-raghav-drive-resume.pdf');
+    document.body.appendChild(aTag);
+    aTag.click();
+    aTag.remove();
+  };
 
   return (
     <nav className="header">
       <div className="logo">
-        <Link 
-          activeClass="active"
-          to="home"
-          spy={true}
-          smooth={true}
-          duration={30}
-        >
-          <div className="logo-img">
-            <span className="blink">&lt;</span>
-            <span>&#47;</span>D<span className="blink">&gt;</span>
-          </div>
-        </Link>
+      <Link 
+  activeClass="active"
+  to="home"
+  spy={true}
+  smooth={true}
+  duration={30}
+>
+  <div className="logo-img">
+    
+    <span style={{ fontSize: '30px' }}>Rudrika :)</span>
+    
+  </div>
+</Link>
       </div>
-      <ul
-        className={click ? "nav-menu active" : "nav-menu"}
-        onClick={handleCLick}
-      >
+      <ul className={click ? "nav-menu active" : "nav-menu"} onClick={handleClick}>
         <li>
           <Link
-          className="navLink"
+            className="navLink"
             activeClass="active"
             to="project"
             spy={true}
             smooth={true}
             duration={30}
-          >Projects</Link>
+            offset={-60}
+          >
+            Projects
+          </Link>
         </li>
         <li>
           <Link
-          className="navLink"
+            className="navLink"
             activeClass="active"
             to="about"
             spy={true}
             smooth={true}
             duration={30}
-          >About</Link>
+            offset={-60}
+          >
+            About
+          </Link>
         </li>
         <li>
           <Link
-          className="navLink" 
+            className="navLink"
             activeClass="active"
             to="skills"
             spy={true}
             smooth={true}
-            duration={30}>Skills</Link>
+            duration={30}
+            offset={-60}
+          >
+            Skills
+          </Link>
         </li>
         <li>
           <Link
-          className="navLink"
+            className="navLink"
             activeClass="active"
             to="contact"
             spy={true}
             smooth={true}
             duration={30}
-          >Contact</Link>
+            offset={-60}
+          >
+            Contact
+          </Link>
         </li>
       </ul>
-      <div className={click ? "social-links active" : "social-links"}>
-        <a
-          href="https://www.linkedin.com/in/deepajha14/"
-          target="_blank"
-          rel="noopener noreferrer"
+      <div className="buttons-arrange">
+        <button
+          onClick={downloadFile} // Call the download function
+          className="btn"
         >
-          <FaLinkedin
-            className="social"
-            size={25}
-            style={{ marginRight: "2rem" }}
-          />
-        </a>
-        <a
-          href="https://github.com/Deepajha14"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaGithub
-            className="social"
-            size={25}
-            style={{ marginRight: "2rem" }}
-          />
-        </a>
-        <a
-          href="https://www.instagram.com/artsydeepa/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaInstagram
-            className="social"
-            size={25}
-            style={{ marginRight: "2rem" }}
-          />
-        </a>
+          Download Resume
+        </button>
       </div>
-      <div className="hamburger" onClick={handleCLick}>
+      <div className="hamburger" onClick={handleClick}>
         {click ? (
           <FaTimes className="bars" size={25} />
         ) : (

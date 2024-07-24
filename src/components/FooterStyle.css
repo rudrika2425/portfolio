@@ -1,3 +1,5 @@
+/* FooterStyle.css */
+
 .footer {
     width: 100%;
     padding: 2rem;
@@ -9,4 +11,39 @@
     justify-content: center;
     border-top: 1px solid rgba(255, 255, 255, 0.3);
     white-space: nowrap;
+}
+
+/* Responsive Styles */
+
+@media screen and (max-width: 1200px) {
+    .footer {
+        font-size: 13px;
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .footer {
+        font-size: 12px;
+        padding: 1.2rem;
+        letter-spacing: 1.5px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer {
+        font-size: 11px;
+        padding: 1rem;
+        letter-spacing: 1px;
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        text-align: center; /* Center text for better readability */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .footer {
+        font-size: 10px;
+        padding: 0.8rem;
+        letter-spacing: 0.5px;
+    }
 }

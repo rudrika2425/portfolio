@@ -1,116 +1,187 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #333;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+nav ul li {
+  float: left;
+}
+
+nav ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  background-color: #111;
+}
+
+section {
+  padding: 20px;
+}
+
+.padded {
+  padding-top: 60px; /* Adjust this value to the height of your navbar */
+}
+
 .about-container {
-    display: flex;
-    margin: 80px 13vw 0 18vw;
-    padding-top: 60px;
+  display: flex;
+  flex-wrap: wrap; /* Ensure content wraps on smaller screens */
+  margin: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5px;
+}
+
+.aboutMe-text {
+  flex: 2;
+  padding: 50px;
+  padding-right: 10px;
 }
 
 .profile-photo {
-    margin-left: 50px;
-    height: fit-content;
-    padding: 0;
-}
-
-.profile-photo .heading {
-    font-size: 22px;
-    font-weight: 600;
-    margin-top: 100px;
-    color: #F94892;
+  flex: 1; /* Take up less space */
+  margin-left: 3px;
+  margin-right: 140px; /* Adjust margin to reduce space */
+  padding: 0;
+  margin-top: 100px;
 }
 
 .profile-photo .img {
-    width: 100%;
-    z-index: -3;
+  height: auto; /* Ensure the image scales proportionally */
+  max-width: 100%; /* Adjust max-width to control image size */
 }
 
- .about-container .name {
-    line-height: 85px;
-    position: absolute;
-    right: 6.5vw;
-    padding-top: 75px;
-    width: 110px;
-    overflow-wrap: break-word;
-    color: #F94892;
-    text-transform: uppercase;
-    z-index: 0;
-    font-size: 100px;
-    font-family: 'Intro', sans-serif;
-    font-weight: 800;
-    text-transform: uppercase;
-    background: -webkit-linear-gradient(-86deg, #ffe1a0  5%, #f67280 53%, #F94892 91%);
-    -webkit-background-clip: text;
-    -webkit-text-stroke: 4px transparent;
-    background-clip: text;
-    /* color: #2c2c2c; */
-    color: black;
+.aboutMe-text h3 {
+  text-align: center;
+  color: white;
+  font-size: 50px;
+  font-weight: 500;
+  margin-bottom: 20px;
 }
 
-.about-container .aboutMe-text {
-    font-size: 18px;
-    font-weight: 200;
-    color: #fff;
-    height: fit-content;
+.contact-window p {
+  font-size: 16px;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  margin-bottom: -10px;
+  background: linear-gradient(to right, #DF8908, #B415FF, #F94892);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.aboutMe-text span {
-    color: #F94892;
+.aboutMe-text .tab-contents {
+  margin-top: 20px;
 }
 
-.about-container .aboutMe-text h3 {
-    color: #fff;    
-    font-size: 36px;
-    font-weight: 500;
-    margin-bottom: 20px;
+.aboutMe-text .tab-contents ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-.about-container .aboutMe-text .resume {
-    color: #F94892;
-    border-bottom: 2.5px solid #F94892;
-    transition: all 0.3s ease-in-out;
-    display: inline-block;
-    font-weight: 800;
+.aboutMe-text .tab-contents ul li {
+  margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 1.5;
 }
 
-.about-container .aboutMe-text .resume:hover {
-    transform: scale(1.05);
+span {
+  background: linear-gradient(to right, #DF8908, #B415FF, #F94892);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-@media screen and (max-width: 1150px) {
-    .about-container .aboutMe-text {
-        font-size: 16px;
-    }
-    .about-container .name {
-        font-size: 80px;
-        width: 80px;
-        line-height: 70px;
-        right: 8vw;
-    }
+.profile-photo .heading {
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 20px; /* Adjust margin for heading */
+  color: #F94892;
+}
+
+.about-container .name {
+  line-height: 85px;
+  height: 100vh;
+  position: absolute;
+  margin-right: -90px;
+  margin-top: -50px;
+  right: 6.5vw;
+  padding-top: 75px;
+  width: 110px;
+  overflow-wrap: break-word;
+  color: #F94892;
+  text-transform: uppercase;
+  z-index: 0;
+  font-size: 100px;
+  font-family: 'Intro', sans-serif;
+  font-weight: 800;
+  background: -webkit-linear-gradient(-86deg, #DF8908 5%, #B415FF 53%, #F94892 91%);
+  -webkit-background-clip: text;
+  -webkit-text-stroke: 4px transparent;
+  background-clip: text;
+  color: black;
 }
 
 @media screen and (max-width: 925px) {
-    .about-container {
-        flex-direction: column;
-        align-items: center;
-    }
+  .about-container {
+    flex-direction: column;
+    align-items: center;
+    margin-left: 0; /* Reset margin for smaller screens */
+    margin-right: 0; /* Reset margin for smaller screens */
+  }
 
-    .heading, .about-container .name {
-        display: none;
-    }
+  .aboutMe-text {
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
 
-    .about-container .aboutMe-text {
-        text-align: center;
-    }
+  .profile-photo {
+    margin-top: 20px; /* Adjust margin-top for spacing */
+    max-width: 100%; /* Limit max-width for profile photo on smaller screens */
+  }
 
-    .img {
-        display: none;
-        margin-top: 50px;
-        max-width: 400px;
-    }
+  .about-container .name {
+    display: none; /* Hide unnecessary elements on smaller screens */
+  }
 }
 
-@media screen and (max-width: 750px) {
-    .about-container {
-        margin-left: 9vw;
-        margin-top: 0;
-        padding-top: 70px;
-    }
+@media screen and (max-width: 600px) {
+  nav ul li {
+    float: none;
+    text-align: center;
+  }
+
+  nav ul li a {
+    padding: 10px;
+  }
+
+  .aboutMe-text h3 {
+    font-size: 36px; /* Reduce font size for smaller screens */
+  }
+
+  .contact-window p {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  .aboutMe-text .tab-contents ul li {
+    font-size: 16px; /* Adjust font size for smaller screens */
+  }
 }
