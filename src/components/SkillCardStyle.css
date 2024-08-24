@@ -31,17 +31,31 @@
     font-weight: 500;
 }
 
-.skill-box .skillset abbr .techLogo:hover::after {
-    content: "";
+/* Tooltip Styles */
+.skill-box .skillset abbr {
+    position: relative;
+}
+
+.skill-box .skillset abbr[title]::after {
+    content: attr(title);
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-image: linear-gradient(to right, #DF8908, #B415FF, #F94892);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
+    bottom: 120%; /* Adjust based on your layout */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.skill-box .skillset abbr:hover::after {
+    visibility: visible;
+    opacity: 1;
 }
 
 .skill-box .skillset {
